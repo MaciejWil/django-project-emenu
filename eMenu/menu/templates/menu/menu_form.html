@@ -1,0 +1,15 @@
+{% extends "menu/menu_base.html" %}
+
+{% block head_block %}
+<title>Menu Form</title>
+{% endblock %}
+
+{% block body_block %}
+<h1>Utworz Menu</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Submit">
+  </form>
+{% endblock %}
