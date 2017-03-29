@@ -6,19 +6,18 @@
 
 {% block body_block %}
 <div class="jumbotron">
-  <h1>{{menu_detail.nazwa}}</h1>
+  <h1>{{menu_detail.name}}</h1>
   <h2>Menu:</h2>
-  {% for danie in menu_detail.karta.all %}
-    <p>Nazwa: {{danie.nazwa}}</p>
-    <p>Opis: {{danie.opis}}</p>
-    <p>Cena: {{danie.cena}}zl</p>
-    <p>Czas przygotowania: {{danie.czas_przygotowania}}min</p>
-    <p>Data dodania: {{danie.data_dodania}}</p>
-    <p>Data aktualizacji: {{danie.data_aktualizacji}}</p>
-    <p>Danie wegetarianskie: {{danie.danie_wegetarianskie}}</p>
-    {% if danie.foto %}
-    <img src='{{ danie.foto.url }}' class='img-responsive'>
-    {% endif %}
+  {% for dish in menu_detail.emenu.all %}
+    <p>Nazwa: {{dish.name}}</p>
+    <p>Opis: {{dish.description}}</p>
+    <p>Cena: {{dish.price}}zl</p>
+    <p>Czas przygotowania: {{dish.preparation_time}}min</p>
+    <p>Data dodania: {{dish.added_date}}</p>
+    <p>Data aktualizacji: {{dish.update_date}}</p>
+    <p>Danie wegetarianskie: {% if dish.vegetarian %}tak{% else %}nie{% endif %}
+    {% if dish.foto %}<img src='{{ dish.foto.url }}' class='img-responsive'>{% endif %}
+
     <br></br>
  {% endfor %}
 </div>

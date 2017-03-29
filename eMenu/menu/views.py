@@ -18,5 +18,5 @@ class MenuDetailView(DetailView):
 
 
 class MenuCreateView(CreateView):
-    fields = ('nazwa','opis','data_dodania', 'data_aktualizacji')
+    fields = ('name','description','added_date')
     model = models.Menu
